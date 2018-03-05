@@ -14,12 +14,12 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 @MockEndpointsAndSkip("direct:my-outbound*")
 
-public class RouteTest {
+public class SimpleRouteTest {
     @Produce(uri = "direct:my-inbound")
-    ProducerTemplate in;
+    private ProducerTemplate in;
 
     @EndpointInject(uri = "mock:direct:my-outbound")
-    MockEndpoint out;
+    private MockEndpoint out;
 
     @Test
     public void shouldProcessMessage() throws InterruptedException {
